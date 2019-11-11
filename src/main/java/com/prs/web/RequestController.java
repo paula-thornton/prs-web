@@ -117,7 +117,12 @@ public class RequestController {
 			r.setStatus("Review");
 		}
 		r.setSubmittedDate(LocalDateTime.now());
-		jr = updateRequest(r);
+		try {
+			jr = updateRequest(r);
+		} catch (Exception e) {
+			jr = JsonResponse.getInstance(e);
+			e.printStackTrace();
+		}
 		return jr;
 	}
 	
@@ -126,7 +131,12 @@ public class RequestController {
 	public JsonResponse approveRequest(@RequestBody Request r) {
 		JsonResponse jr = null;
 		r.setStatus("Approved");
-		jr = updateRequest(r);
+		try {
+			jr = updateRequest(r);
+		} catch (Exception e) {
+			jr = JsonResponse.getInstance(e);
+			e.printStackTrace();
+		}
 		return jr;
 	}
 	
@@ -135,7 +145,12 @@ public class RequestController {
 	public JsonResponse rejectRequest(@RequestBody Request r) {
 		JsonResponse jr = null;
 		r.setStatus("Rejected");
-		jr = updateRequest(r);
+		try {
+			jr = updateRequest(r);
+		} catch (Exception e) {
+			jr = JsonResponse.getInstance(e);
+			e.printStackTrace();
+		}
 		return jr;
 	}
 	
