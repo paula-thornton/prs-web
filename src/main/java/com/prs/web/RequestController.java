@@ -10,7 +10,7 @@ import com.prs.db.RequestRepository;
 @CrossOrigin
 @RestController
 
-@RequestMapping("/purchase-requests")
+@RequestMapping("/requests")
 
 public class RequestController {
 
@@ -91,6 +91,7 @@ public class RequestController {
 		try {
 			if (requestRepo.existsById(id)) {
 				requestRepo.deleteById(id);
+				jr = JsonResponse.getInstance("Delete successful!");
 			} else {
 				jr = JsonResponse.getInstance("Error deleting request. " + "id: " + id + " doesn't exist");
 			}

@@ -88,6 +88,7 @@ public class ProductController {
 		try {
 			if (productRepo.existsById(id)) {
 				productRepo.deleteById(id);
+				jr = JsonResponse.getInstance("Delete successful!");
 			} else {
 				jr = JsonResponse.getInstance("Error deleting product. " + "id: " + id + " doesn't exist");
 			}

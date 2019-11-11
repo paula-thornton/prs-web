@@ -88,6 +88,7 @@ public class UserController {
 		try {
 			if (userRepo.existsById(id)) {
 				userRepo.deleteById(id);
+				jr = JsonResponse.getInstance("Delete successful!");
 			} else {
 				jr = JsonResponse.getInstance("Error deleting user. " + "id: " + id + " doesn't exist");
 			}

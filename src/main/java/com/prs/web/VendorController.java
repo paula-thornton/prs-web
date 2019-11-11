@@ -88,6 +88,7 @@ public class VendorController {
 		try {
 			if (vendorRepo.existsById(id)) {
 				vendorRepo.deleteById(id);
+				jr = JsonResponse.getInstance("Delete successful!");
 			} else {
 				jr = JsonResponse.getInstance("Error deleting vendor. " + "id: " + id + " doesn't exist");
 			}
